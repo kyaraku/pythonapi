@@ -11,6 +11,8 @@ class Post(BaseModel):
     published: bool = True
     rating: Optional[int] = None
 
+my_posts = [{"ttle": "title of post 1", "content": "content of post 1", "id": 1}, 
+            {"ttle": "favorite foods", "content": "I like pineapple pizza", "id": 2}]
 
 @app.get("/")
 def root():
@@ -18,14 +20,16 @@ def root():
 
 @app.get("/posts")
 def get_posts():
-    return {"data": "This is your first post"}
+    return {"data": my_posts}
+    # return {"data": "This is your posts"}
 
-@app.post("/createposts")
+@app.post("/posts")
 def create_posts(post: Post):
     print(post)
     print(post.dict())
     return {"data" : post}
-    
+
+# Other ways for creating a post    
 # def create_posts(new_post: Post):
 #     print(new_post.rating)
 #     # print(new_post.title)
