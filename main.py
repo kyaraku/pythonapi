@@ -21,10 +21,10 @@ def get_posts():
     return {"data": "This is your first post"}
 
 @app.post("/createposts")
-def create_posts(new_post: Post):
-    print(new_post)
-    print(new_post.dict())
-    return {"data" : new_post}
+def create_posts(post: Post):
+    print(post)
+    print(post.dict())
+    return {"data" : post}
     
 # def create_posts(new_post: Post):
 #     print(new_post.rating)
